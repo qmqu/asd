@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101116">
-  <title>MCTiers — Ranking personalizado</title>
-  <meta name="description" content="Ranking personalizado de Minecraft PvP, versión fan-made.">
+  <title>Minecraft PvP Rankings | MCTiers</title>
+  <meta name="description" content="Ranking de Minecraft PvP editable en el navegador.">
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
@@ -15,18 +15,34 @@
     <div class="wrap header-inner">
       <a class="brand" href="./index.html" aria-label="Inicio"><img src="logo.png" alt="MC Tiers Custom Rankings"></a>
       <nav class="main-links" aria-label="Navegación"><a href="#ranking">Rankings</a><a href="https://mctiers.gg/server-ip" target="_blank" rel="noopener noreferrer">Server IP</a><a href="https://mctiers.gg/events" target="_blank" rel="noopener noreferrer">Events</a></nav>
-      <span class="fan-pill">FAN-MADE</span>
+      <button id="manage-toggle" class="manage-button" type="button" aria-expanded="false">⚙ Administrar jugadores</button>
     </div>
   </header>
   <main class="wrap">
     <section class="panel" id="ranking">
       <div class="tabs" id="mode-tabs" aria-label="Modos de juego"></div>
-      <div class="intro"><div><h1 id="ranking-title">Overall Minecraft PvP Rankings</h1><p>Ranking personalizado · Tiers y puntos del ranking original</p></div><div class="server"><span>SERVER IP</span><button type="button" id="copy-ip" title="Copiar IP">playmctiers.com ⧉</button></div></div>
-      <div class="controls"><label class="search-box" for="search">⌕ <input id="search" placeholder="Search player..." autocomplete="off" aria-label="Buscar jugador"></label><span class="note">Los 3 primeros nombres están personalizados. Los tiers y puntos no fueron modificados.</span></div>
+      <div class="intro"><div><h1 id="ranking-title">Overall Minecraft PvP Rankings</h1><p>Jugadores clasificados por puntos en 8 modalidades</p></div><div class="server"><span>SERVER IP</span><button type="button" id="copy-ip" title="Copiar IP">playmctiers.com ⧉</button></div></div>
+      <div class="controls"><label class="search-box" for="search">⌕ <input id="search" placeholder="Search player..." autocomplete="off" aria-label="Buscar jugador"></label><span class="note" id="count-note"></span></div>
       <div class="ranking-wrap"><table class="ranking-table"><thead><tr><th scope="col">#</th><th scope="col">Player</th><th scope="col">Region</th><th scope="col">Points</th><th scope="col">Tiers</th></tr></thead><tbody id="leaderboard"></tbody></table></div>
       <p id="no-results" hidden>No se encontraron jugadores.</p>
     </section>
-    <section class="info"><strong>Versión de fans · no oficial.</strong> Los nombres del top 3 son personalizados; el resto de los datos es una copia estática de la clasificación consultada el 17 de noviembre de 2026. No se actualiza automáticamente. <a href="https://mctiers.gg/rankings/overall" target="_blank" rel="noopener noreferrer">Ver ranking oficial</a>.</section>
+    <section class="manager" id="manager" hidden>
+      <div class="manager-head"><div><h2>Administrar la tierlist</h2><p>Agregar, editar o sacar jugadores. Los cambios se guardan en este navegador.</p></div><button id="reset" type="button" class="soft-button">Restaurar lista inicial</button></div>
+      <div class="manager-grid">
+        <form id="player-form">
+          <h3 id="form-heading">Agregar jugador</h3>
+          <input id="edit-id" type="hidden">
+          <label>Nombre <input id="player-name" maxlength="32" required placeholder="Nombre de Minecraft"></label>
+          <div class="fields"><label>Puntos <input id="player-points" type="number" min="0" value="0" required></label><label>Región <select id="player-region"><option>NA</option><option>EU</option><option>SA</option><option>AS</option><option>ME</option><option>OC</option></select></label></div>
+          <label>Título <input id="player-title" placeholder="Combat Master"></label>
+          <h4>Tiers por modalidad</h4><div id="tier-fields" class="tier-fields"></div>
+          <div class="form-actions"><button type="submit" class="primary-button" id="save-player">Agregar jugador</button><button type="button" id="cancel-edit" class="soft-button" hidden>Cancelar edición</button></div>
+        </form>
+        <div class="manage-list"><h3>Jugadores de la tierlist</h3><div id="manage-players"></div></div>
+      </div>
+      <div class="storage-actions"><button type="button" id="export-json" class="soft-button">Exportar JSON</button><label class="soft-button file-upload">Importar JSON <input id="import-json" type="file" accept=".json,application/json" hidden></label><span>Para compartir los cambios con todos los visitantes hay que actualizar los datos del repositorio; guardar acá solo afecta a tu navegador.</span></div>
+    </section>
+    <section class="info"><strong>Copia editable y no oficial.</strong> El top 3 muestra nombres personalizados con tiers y puntos de una copia estática; no modifica los perfiles ni la web de MCTiers. Los datos no se actualizan automáticamente. <a href="https://mctiers.gg/rankings/overall" target="_blank" rel="noopener noreferrer">Ver ranking oficial</a>.</section>
   </main>
-  <footer class="wrap footer"><div>Proyecto fan-made · No afiliado con MCTiers, Mojang ni Microsoft.</div><div>Java · Bedrock · PvP rankings</div></footer>
+  <footer class="wrap footer"><div>Proyecto independiente · No afiliado con MCTiers, Mojang ni Microsoft.</div><div>Java · Bedrock · PvP rankings</div></footer>
 </body></html>
