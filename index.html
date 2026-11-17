@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101116">
+  <title>MCTiers — Ranking personalizado</title>
+  <meta name="description" content="Ranking personalizado de Minecraft PvP, versión fan-made.">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap header-inner">
+      <a class="brand" href="./index.html" aria-label="Inicio"><img src="logo.png" alt="MC Tiers Custom Rankings"></a>
+      <nav class="main-links" aria-label="Navegación"><a href="#ranking">Rankings</a><a href="https://mctiers.gg/server-ip" target="_blank" rel="noopener noreferrer">Server IP</a><a href="https://mctiers.gg/events" target="_blank" rel="noopener noreferrer">Events</a></nav>
+      <span class="fan-pill">FAN-MADE</span>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="panel" id="ranking">
+      <div class="tabs" id="mode-tabs" aria-label="Modos de juego"></div>
+      <div class="intro"><div><h1 id="ranking-title">Overall Minecraft PvP Rankings</h1><p>Ranking personalizado · Tiers y puntos del ranking original</p></div><div class="server"><span>SERVER IP</span><button type="button" id="copy-ip" title="Copiar IP">playmctiers.com ⧉</button></div></div>
+      <div class="controls"><label class="search-box" for="search">⌕ <input id="search" placeholder="Search player..." autocomplete="off" aria-label="Buscar jugador"></label><span class="note">Los 3 primeros nombres están personalizados. Los tiers y puntos no fueron modificados.</span></div>
+      <div class="ranking-wrap"><table class="ranking-table"><thead><tr><th scope="col">#</th><th scope="col">Player</th><th scope="col">Region</th><th scope="col">Points</th><th scope="col">Tiers</th></tr></thead><tbody id="leaderboard"></tbody></table></div>
+      <p id="no-results" hidden>No se encontraron jugadores.</p>
+    </section>
+    <section class="info"><strong>Versión de fans · no oficial.</strong> Los nombres del top 3 son personalizados; el resto de los datos es una copia estática de la clasificación consultada el 17 de noviembre de 2026. No se actualiza automáticamente. <a href="https://mctiers.gg/rankings/overall" target="_blank" rel="noopener noreferrer">Ver ranking oficial</a>.</section>
+  </main>
+  <footer class="wrap footer"><div>Proyecto fan-made · No afiliado con MCTiers, Mojang ni Microsoft.</div><div>Java · Bedrock · PvP rankings</div></footer>
+</body></html>
